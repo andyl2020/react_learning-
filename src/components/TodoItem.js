@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export class TodoItem extends Component {
     getStyle = () => {
-        // TODO
+        // TODO: use the const variable and add the changing property (i.e. crossing it out) to the variable
         // todoItemStyle = Object.assign({textDecoration: this.props.todoItem.completed ? 'line-through' : 'none'},todoItemStyle)
         // return{
         //     todoItemStyle
@@ -16,21 +16,31 @@ export class TodoItem extends Component {
         }
     }
 
-    checkboxComplete = (e) => {
-        console.log(this.props)
-    }
-
     render() {
+        //destructuring
+        const { id, taskName } = this.props.todoItem
+
         return (
-            
             <div style={this.getStyle()}>         
                <p>
-                    <input type="checkbox" onChange={this.checkboxComplete}/> {' '}
-                    {this.props.todoItem.taskName}
+                    <input type="checkbox" onChange={this.props.markComplete.bind(this,id)}/> {' '}
+                    {taskName}
+                    <button onClick={this.props.deleteToDo.bind(this,id)} style={delBtnStyle}>x</button>
                 </p> 
+                
             </div>
         )
     }
+}
+
+const delBtnStyle = {
+    background: '#ff0000',
+    color: '#fff',
+    border: 'none',
+    padding: '5px 8px',
+    borderRadius: '50%',
+    cursor: 'pointer',
+    float: 'right'
 }
 
 var todoItemStyle = {
