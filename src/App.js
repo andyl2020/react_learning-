@@ -1,38 +1,37 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+// components are capitalized
 import './App.css';
 import Todos from './components/Todos';
 import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
 import About from './components/pages/About';
-import uuid from 'uuid';
+
+// packages are not capitalized
+// import uuid from 'uuid';
+import axois from 'axios'
 
 class App extends Component {
   state = {
-    todos: [
-      {
-        id: uuid.v4(),
-        title: 'japps jumpstart',
-        completed: false
-      },
-      {
-        id: uuid.v4(),
-        title: 'japps IBM',
-        completed: false
-      },
-      {
-        id: uuid.v4(),
-        title: 'japps purestoreage',
-        completed: false
-      }
-    ]
+    todos: []
   }
+
+  //a lifecycle method like render()
+  //TODO what does this do
+  componentDidMount() {
+    axois.get('https://jsonplaceholder.typicode.com/todos?_limit=3')
+      .then(res => this.setState({todos: res.data}))
+  }
+
 
   deleteToDo = (id) => {
     //TODO understand how to spread ... operator works and how filter works, and why there's no {} after => here
-    this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id
-    )] })
+    // TODO: promise backs - learn
+    axois.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      .then(res => this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id
+        )] })) //maunal delete/change state, coupled with an api delete to the backend.
+    
   }
 
   toggleCompletedState = (id) => {
@@ -46,14 +45,21 @@ class App extends Component {
     }) })
   }
 
+  findMaxIdPlusOne = () => {
+    let todoIds = this.state.todos.map(({id}) => id)
+    let max = Math.max(...todoIds) + 1
+    console.log(todoIds, max)
+    return max
+  }
+
   //adds a todo
   addTodo = (title) => {
-    const newTodo = {
-      id: uuid.v4(),
-      title: title, //you can just do <title> (es6 syntax for collapsing)
-      completed: false
-    }
-    this.setState({ todos: [...this.state.todos, newTodo] })
+    axois.post('https://jsonplaceholder.typicode.com/todos', { //id is handled for you by the post request
+      title: title,
+      completed: false,
+      id: this.findMaxIdPlusOne //this wont work for jsonplaceholder, ids can't be set. 
+    })
+      .then(res => this.setState({ todos: [...this.state.todos, res.data] }))
   }
 
   render() {

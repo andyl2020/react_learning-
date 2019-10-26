@@ -52,7 +52,9 @@ var todoItemStyle = {
 //propTypes
 TodoItem.propType = {
     key: PropTypes.number.isRequired,
-    todoItem: PropTypes.object.isRequired
+    todoItem: PropTypes.object.isRequired,
+    markComplete: PropTypes.func.isRequired,
+    deleteToDo: PropTypes.func.isRequired
 }
 
 export default TodoItem
