@@ -18,13 +18,13 @@ export class TodoItem extends Component {
 
     render() {
         //destructuring
-        const { id, taskName } = this.props.todoItem
+        const { id, title } = this.props.todoItem
 
         return (
             <div style={this.getStyle()}>         
                <p>
                     <input type="checkbox" onChange={this.props.markComplete.bind(this,id)}/> {' '}
-                    {taskName}
+                    {title}
                     <button onClick={this.props.deleteToDo.bind(this,id)} style={delBtnStyle}>x</button>
                 </p> 
                 

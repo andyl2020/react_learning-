@@ -13,17 +13,17 @@ class App extends Component {
     todos: [
       {
         id: uuid.v4(),
-        taskName: 'japps jumpstart',
+        title: 'japps jumpstart',
         completed: false
       },
       {
         id: uuid.v4(),
-        taskName: 'japps IBM',
+        title: 'japps IBM',
         completed: false
       },
       {
         id: uuid.v4(),
-        taskName: 'japps purestoreage',
+        title: 'japps purestoreage',
         completed: false
       }
     ]
@@ -47,10 +47,10 @@ class App extends Component {
   }
 
   //adds a todo
-  addTodo = (taskName) => {
+  addTodo = (title) => {
     const newTodo = {
       id: uuid.v4(),
-      taskName: taskName, //you can just do <taskName> (es6 syntax for collapsing)
+      title: title, //you can just do <title> (es6 syntax for collapsing)
       completed: false
     }
     this.setState({ todos: [...this.state.todos, newTodo] })
