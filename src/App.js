@@ -5,6 +5,7 @@ import './App.css';
 import Todos from './components/Todos';
 import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
+import About from './components/pages/About';
 import uuid from 'uuid';
 
 class App extends Component {
@@ -61,12 +62,23 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="container">
-            <AddTodo addTodo={this.addTodo}/>
-            <Todos 
-              todoz={this.state.todos} 
-              markComplete={this.toggleCompletedState} 
-              deleteToDo={this.deleteToDo}>  
-            </Todos>
+            <Route exact path="/" render={props => (
+              <React.Fragment>
+                <Header/>
+                <AddTodo addTodo={this.addTodo}/>
+                <Todos
+                  todoz={this.state.todos} 
+                  markComplete={this.toggleCompletedState} 
+                  deleteToDo={this.deleteToDo}/>
+              </React.Fragment>
+            )}/>
+            <Route path='/about' render={someVar => (
+              <React.Fragment>
+                <Header/>
+                <About/>
+              </React.Fragment>
+            )}/>
+
           </div>
         </div>
       </Router>
