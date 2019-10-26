@@ -17,12 +17,19 @@ class App extends Component {
   state = {
     todos: []
   }
-
+  
   //a lifecycle method like render()
   //TODO what does this do
   componentDidMount() {
     axois.get('https://jsonplaceholder.typicode.com/todos?_limit=3')
       .then(res => this.setState({todos: res.data}))
+    
+    var API_ENDPOINT = "https://api.openweathermap.org/data/2.5/weather";
+    var API_KEY = "";
+    var url = `${API_ENDPOINT}?q=Langley&units=metric&appid=${API_KEY}`
+    axois.get(url)
+      .then(res => console.log(res))
+
   }
 
 

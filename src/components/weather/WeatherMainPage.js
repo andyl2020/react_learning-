@@ -7,10 +7,10 @@ export class WeatherMainPage extends Component {
   render() {
     return (
       <div>
-        <title>AWS Workshop</title>
+        <h1>Andy's Weather App</h1>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/stylesheets/structure.css" />
-        <link rel="stylesheet" href="/stylesheets/form.css" />
+        {/* <link rel="stylesheet" href="/stylesheets/structure.css" />
+        <link rel="stylesheet" href="/stylesheets/form.css" /> */}
         <main role="main">
           <form className="Form" id="weather-form">
             <span>
