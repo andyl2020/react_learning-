@@ -13,7 +13,7 @@ class App extends Component {
       {
         id: 2,
         taskName: 'japps IBM',
-        completed: false
+        completed: true
       },
       {
         id: 3,
