@@ -7,6 +7,7 @@ import Todos from './components/Todos';
 import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
 import About from './components/pages/About';
+import WeatherMP from './components/weather/WeatherMainPage';
 
 // packages are not capitalized
 // import uuid from 'uuid';
@@ -83,6 +84,9 @@ class App extends Component {
                 <Header/>
                 <About/>
               </React.Fragment>
+            )}/>
+            <Route path='/sandbox' render={somevarr => (
+              <WeatherMP/>
             )}/>
 
           </div>
