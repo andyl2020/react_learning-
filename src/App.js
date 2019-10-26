@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import './App.css';
 import Todos from './components/Todos';
+import Header from './components/layout/Header';
+import AddTodo from './components/AddTodo';
+import uuid from 'uuid';
 
 class App extends Component {
   state = {
     todos: [
       {
-        id: 1,
+        id: uuid.v4(),
         taskName: 'japps jumpstart',
         completed: false
       },
       {
-        id: 2,
+        id: uuid.v4(),
         taskName: 'japps IBM',
         completed: false
       },
       {
-        id: 3,
+        id: uuid.v4(),
         taskName: 'japps purestoreage',
         completed: false
       }
@@ -28,6 +33,7 @@ class App extends Component {
     this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id
     )] })
   }
+
   toggleCompletedState = (id) => {
     console.log("from app.js"+id)
     // TODO: understand the arrow function here (49:41) - x => y |vs| x = () => y
@@ -38,13 +44,33 @@ class App extends Component {
       return singleTodo;
     }) })
   }
+
+  //adds a todo
+  addTodo = (taskName) => {
+    const newTodo = {
+      id: uuid.v4(),
+      taskName: taskName, //you can just do <taskName> (es6 syntax for collapsing)
+      completed: false
+    }
+    this.setState({ todos: [...this.state.todos, newTodo] })
+  }
+
   render() {
     console.log(this.state.todos)
     return (
-    <div className="App">
-      <h1>App.js</h1>
-      <Todos todoz={this.state.todos} markComplete={this.toggleCompletedState} deleteToDo={this.deleteToDo}></Todos>
-    </div>
+      <Router>
+        <div className="App">
+          <div className="container">
+            <AddTodo addTodo={this.addTodo}/>
+            <Todos 
+              todoz={this.state.todos} 
+              markComplete={this.toggleCompletedState} 
+              deleteToDo={this.deleteToDo}>  
+            </Todos>
+          </div>
+        </div>
+      </Router>
+
     );
   }
 }
