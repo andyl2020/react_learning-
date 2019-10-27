@@ -25,8 +25,9 @@ class App extends Component {
       .then(res => this.setState({todos: res.data}))
     
     var API_ENDPOINT = "https://api.openweathermap.org/data/2.5/weather";
-    var API_KEY = "";
+    var API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
     var url = `${API_ENDPOINT}?q=Langley&units=metric&appid=${API_KEY}`
+    // axois.get(url)
     axois.get(url)
       .then(res => console.log(res))
 
@@ -92,7 +93,7 @@ class App extends Component {
                 <About/>
               </React.Fragment>
             )}/>
-            <Route path='/sandbox' render={somevarr => (
+            <Route path='/weather' render={somevarr => (
               <WeatherMP/>
             )}/>
 
