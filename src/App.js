@@ -23,11 +23,9 @@ class App extends Component {
   componentDidMount() {
     axois.get('https://jsonplaceholder.typicode.com/todos?_limit=3')
       .then(res => this.setState({todos: res.data}))
-    
     var API_ENDPOINT = "https://api.openweathermap.org/data/2.5/weather";
     var API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
     var url = `${API_ENDPOINT}?q=Langley&units=metric&appid=${API_KEY}`
-    // axois.get(url)
     axois.get(url)
       .then(res => console.log(res))
 
