@@ -12,7 +12,8 @@ export class TodoItem extends Component {
             background: '#e1ffe0', //lime green (light)
             padding: '10px',
             borderBottom: '1px #ccc dotted',
-            textDecoration: this.props.todoItem.completed ? 'line-through' : 'none'
+            textDecoration: this.props.todoItem.completed ? 'line-through' : 'none',
+            fontSize: '15px'
         }
     }
 
