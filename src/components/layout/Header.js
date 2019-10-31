@@ -10,8 +10,9 @@ function Header() {
             </h1>
             <Link style={linkStyle} to="/">Home</Link> | {' '}
             <Link style={linkStyle} to="/about">About</Link>  | {' '}  
-            <Link style={linkStyle} to="/andydev">Dev</Link>  | {' '}  
-            <Link style={linkStyle} to="/weather">Weather</Link>    
+            <Link style={linkStyle} to="/weather">Weather</Link>  | {' '}  
+            <Link style={linkStyle} to="/checkout">Checkout</Link>  | {' '}  
+            <Link style={linkStyle} to="/andydev">Dev</Link>  
         </header>
     )
 }

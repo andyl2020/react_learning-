@@ -8,6 +8,7 @@ import About from './components/pages/About';
 import WeatherMP from './components/weather/WeatherMainPage';
 import MainPageTodo from './components/pages/todo/MainPageTodo';
 import Checkout from './components/pages/checkout/Checkout';
+import MyForm from './components/pages/myform/MyForm';
 
 // packages are not capitalized
 // import uuid from 'uuid';
@@ -56,10 +57,16 @@ class App extends Component {
                 <WeatherMP/>
               </React.Fragment>
             )}/>
-            <Route path='/andydev' render={somevarr2 => (
+            <Route path='/checkout' render={somevarr2 => (
               <React.Fragment>
                 <Header/>
                 <Checkout/>
+              </React.Fragment>
+            )}/>
+            <Route path='/andydev' render={somevarr2 => (
+              <React.Fragment>
+                <Header/>
+                <MyForm/>
               </React.Fragment>
             )}/>
       </Router>

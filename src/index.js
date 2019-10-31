@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 // import * as serviceWorker from './serviceWorker';
 
+//google fonts for material UI 
+import 'typeface-roboto';
+
 // entry point to the app. grabs root ID from index.js and renders it, using app.js
 ReactDOM.render(<App />, document.getElementById('root'));
 
