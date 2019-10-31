@@ -7,9 +7,11 @@ import Header from './components/layout/Header';
 import About from './components/pages/About';
 import WeatherMP from './components/weather/WeatherMainPage';
 import MainPageTodo from './components/pages/todo/MainPageTodo';
+import Checkout from './components/pages/checkout/Checkout';
 
 // packages are not capitalized
 // import uuid from 'uuid';
+// import 'typeface-roboto';
 
 class App extends Component {
   state = {
@@ -52,6 +54,12 @@ class App extends Component {
               <React.Fragment>
                 <Header/>
                 <WeatherMP/>
+              </React.Fragment>
+            )}/>
+            <Route path='/andydev' render={somevarr2 => (
+              <React.Fragment>
+                <Header/>
+                <Checkout/>
               </React.Fragment>
             )}/>
       </Router>
