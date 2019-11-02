@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+// import MuiThemeProvider from '@material-ui/styles/MuiThemeProvider' //TODO - IMPLEMENT THIS
 
 // form parts
 import RadioGroupButtons from './formParts/RadioGroupButtons';
@@ -14,15 +15,15 @@ export default function AddressForm() {
   const textFieldLabelFontSize = "17px";
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Ever wanted to learn how to code, but don't know where to start? Ready to gain practical skills and level-up your technical understanding? UBC BizTech and Lighthouse Labs invite you to join the beginner-friendly Python coding lesson - Coding For Noobs! 
-        📲 Please bring your Mac or PC to participate in the workshop.
-        Event Details:
-        😁 Who: YOU, any students of any faculty who are interested in learning Python, and professional instructors from Lighthouse Labs
-        🏢 Where: Henry Angus Building, Room 295
-        📅 When: Monday, November 6th from 5:30 - 8:30pm
-        💸 Cost: This event is FREE for BizTech Members. Non-members can purchase membership upon sign-in at the event.
-      </Typography>
+        <Typography variant="h6" gutterBottom>
+          Ever wanted to learn how to code, but don't know where to start? Ready to gain practical skills and level-up your technical understanding? UBC BizTech and Lighthouse Labs invite you to join the beginner-friendly Python coding lesson - Coding For Noobs! 
+          📲 Please bring your Mac or PC to participate in the workshop.
+          Event Details:
+          😁 Who: YOU, any students of any faculty who are interested in learning Python, and professional instructors from Lighthouse Labs
+          🏢 Where: Henry Angus Building, Room 295
+          📅 When: Monday, November 6th from 5:30 - 8:30pm
+          💸 Cost: This event is FREE for BizTech Members. Non-members can purchase membership upon sign-in at the event.
+        </Typography>
       <h4 style={{color: 'red'}}>
         *Required
       </h4>
