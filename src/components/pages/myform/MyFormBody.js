@@ -4,17 +4,14 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
 
 // form parts
-import FacultyRadioButtons from './formParts/RadioGroupButtons';
-import YearRadioButtons from './formParts/YearRadioButtons';
-import EventSourceRadioButtons from './formParts/EventSourceRadioButtons';
+import RadioGroupButtons from './formParts/RadioGroupButtons';
 
 
 
 export default function AddressForm() {
+  const textFieldLabelFontSize = "17px";
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -26,7 +23,11 @@ export default function AddressForm() {
         📅 When: Monday, November 6th from 5:30 - 8:30pm
         💸 Cost: This event is FREE for BizTech Members. Non-members can purchase membership upon sign-in at the event.
       </Typography>
+      <h4 style={{color: 'red'}}>
+        *Required
+      </h4>
       <Grid container spacing={3}>
+        
         <Grid item xs={12} sm={6}>
           <TextField
             required
@@ -35,6 +36,8 @@ export default function AddressForm() {
             label="First name"
             fullWidth
             autoComplete="given-name"
+            InputLabelProps={{style: {fontSize: textFieldLabelFontSize}}}
+            // inputProps={{style: {fontSize: "50px"}}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -45,6 +48,7 @@ export default function AddressForm() {
             label="Last name"
             fullWidth
             autoComplete="family-name"
+            InputLabelProps={{style: {fontSize: textFieldLabelFontSize}}}
           />
         </Grid>
         <Grid item xs={12}>
@@ -55,43 +59,33 @@ export default function AddressForm() {
             label="Email Address"
             fullWidth
             autoComplete="email"
+            InputLabelProps={{style: {fontSize: textFieldLabelFontSize}}}
           />
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            id="address2"
-            name="address2"
-            label="Address line 2"
-            fullWidth
-            autoComplete="billing address-line2"
-          />
+        {/* TODO: make required for my custom radio group. TODO: make other field in radio buttons */}
+        <Grid item xs={12} sm={6}>
+          <RadioGroupButtons 
+            buttonOptions={["Arts","Commerce","Science","Engineering","Kineseology","Land and Food Systems","Forestry", "Other"]}
+            radioGroupTitle={"Faculty"}/>  
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FacultyRadioButtons/>
+          <RadioGroupButtons 
+            buttonOptions={["1st Year","2nd Year","3rd Year","4th Year","5+ Year", "Other"]}
+            radioGroupTitle={"Year"}/>  
         </Grid>
         <Grid item xs={12} sm={6}>
-          <YearRadioButtons/>
-        </Grid>
-        <Grid item xs={12}>
-          <EventSourceRadioButtons/>
+          <RadioGroupButtons 
+            buttonOptions={["Facebook","Boothing","Friends","BizTech_Newsletter","Faculty_Newsletter","Other"]}
+            radioGroupTitle={"How did you hear about this event?"}/>  
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="country"
-            name="country"
-            label="Country"
-            fullWidth
-            autoComplete="billing country"
-          />
+          <RadioGroupButtons 
+            buttonOptions={["No","Other"]}
+            radioGroupTitle={"Do you have any dietary restrictions? If yes, please specify in 'Other'"}/>  
         </Grid>
-        <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-            label="Use this address for payment details"
-          />
-        </Grid>
+
       </Grid>
     </React.Fragment>
   );
 }
+
