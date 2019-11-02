@@ -8,7 +8,9 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 
 // form parts
-import RadioButtons from './formParts/RadioButtons';
+import FacultyRadioButtons from './formParts/RadioGroupButtons';
+import YearRadioButtons from './formParts/YearRadioButtons';
+import EventSourceRadioButtons from './formParts/EventSourceRadioButtons';
 
 
 
@@ -65,20 +67,13 @@ export default function AddressForm() {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <RadioButtons/>
+          <FacultyRadioButtons/>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <RadioButtons/>
+          <YearRadioButtons/>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
-            fullWidth
-            autoComplete="billing postal-code"
-          />
+        <Grid item xs={12}>
+          <EventSourceRadioButtons/>
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField

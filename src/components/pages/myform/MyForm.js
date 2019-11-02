@@ -10,9 +10,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import AddressForm from './AddressForm';
-import PaymentForm from './PaymentForm';
-import Review from './Review';
+import MyFormBody from './MyFormBody';
 
 function Copyright() {
   return (
@@ -69,11 +67,11 @@ const steps = ['Shipping address', 'Payment details', 'Review your order'];
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <MyFormBody />;
     case 1:
-      return <PaymentForm />;
+      return <MyFormBody />;
     case 2:
-      return <Review />;
+      return <MyFormBody />;
     default:
       throw new Error('Unknown step');
   }
