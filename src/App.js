@@ -3,12 +3,15 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // components are capitalized
 import './App.css'; //TODO: idk how this is imported and works since it contains submit button stuff for the todomain page. how does it fetch?
+import './FlowForm.css';
 import Header from './components/layout/Header';
 import About from './components/pages/About';
 import WeatherMP from './components/weather/WeatherMainPage';
 import MainPageTodo from './components/pages/todo/MainPageTodo';
 import Checkout from './components/pages/checkout/Checkout';
 import MyForm from './components/pages/myform/MyForm';
+import FlowForm from './components/pages/FlowForm/FlowForm'
+
 
 // packages are not capitalized
 // import uuid from 'uuid';
@@ -59,8 +62,14 @@ class App extends Component {
             )}/>
             <Route path='/checkout' render={somevarr2 => (
               <React.Fragment>
-                <Header/>
+                {/* <Header/> */}
                 <Checkout/>
+              </React.Fragment>
+            )}/>
+            <Route path='/flowform' render={somevarr2 => (
+              <React.Fragment>
+                <Header/>
+                <FlowForm/>
               </React.Fragment>
             )}/>
             <Route path='/andydev' render={somevarr2 => (

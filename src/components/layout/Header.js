@@ -12,6 +12,7 @@ function Header() {
             <Link style={linkStyle} to="/about">About</Link>  | {' '}  
             <Link style={linkStyle} to="/weather">Weather</Link>  | {' '}  
             <Link style={linkStyle} to="/checkout">Checkout</Link>  | {' '}  
+            <Link style={linkStyle} to="/flowform">Flowform</Link>  | {' '}  
             <Link style={linkStyle} to="/andydev">Dev</Link>  
         </header>
     )
